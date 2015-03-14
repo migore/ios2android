@@ -44,7 +44,6 @@ Example
 
 ```
 intro_text@2x.png         (510 x 490 pixels)
-intro_text@2x~ipad.png    (1222 x 1152 pixels)
 ```
 
 will result in:
@@ -53,9 +52,6 @@ will result in:
 drawable-mdpi/intro_text.png          (255 x 245 pixels - 50%)
 drawable-hdpi/intro_text.png          (383 x 368 pixels - 75%)
 drawable-xhdpi/intro_text.png         (574 x 551 pixels - 112.5%)
-drawable-large-mdpi/intro_text.png    (611 x 576 pixels - 50%)
-drawable-large-hdpi/intro_text.png    (917 x 864 pixels - 75%)
-drawable-large-xhdpi/intro_text.png   (1375 x 1296 pixels - 112.5%)
 ```
 
 
@@ -72,36 +68,6 @@ will result in:
 drawable-mdpi/intro_text.png          (255 x 245 pixels - 50%)
 drawable-hdpi/intro_text.png          (383 x 368 pixels - 75%)
 drawable-xhdpi/intro_text.png         (574 x 551 pixels - 112.5%)
-```
-
-
-
-3) You can also specify a pre-scaling factor on the command line that is useful to create high-resolution phone images based solely on retina iPad images.
-
-For example, if the iPad resources in your iOS project are 40% larger than the equivalent phone resources, you can specify a percentage on the command line when running the scripts to automatically create phone-sized images from just the iPad resources.
-
-A directory containing the following files:
-
-```
-intro_text@2x~ipad.png    (1000 x 1000 pixels)
-```
-
-when processed with a 60% pre-scaling factor:
-
-```
-$ ios2android 0.60
-```
-
-will result in:
-
-```
-drawable-mdpi/intro_text.png          (300 x 300 pixels - 60% * 50%)
-drawable-hdpi/intro_text.png          (450 x 450 pixels - 60% * 75%)
-drawable-xhdpi/intro_text.png         (675 x 675 pixels - 60% * 112.5%)
-drawable-xxhdpi/intro_text.png        (900 x 900 pixels - 60% * 150%)
-drawable-large-mdpi/intro_text.png    (500 x 500 pixels - 50%)
-drawable-large-hdpi/intro_text.png    (750 x 750 pixels - 75%)
-drawable-large-xhdpi/intro_text.png   (1125 x 1125 pixels - 112.5%)
 ```
 
 
