@@ -56,14 +56,12 @@ function float_eval()
 #####################################################################
 # Process images.
 
-rm -rf drawable-mdpi
-rm -rf drawable-hdpi
-rm -rf drawable-xhdpi
-rm -rf drawable-xxhdpi
-mkdir drawable-mdpi
-mkdir drawable-hdpi
-mkdir drawable-xhdpi
-mkdir drawable-xxhdpi
+if [ -z "$PROJECT_PATH" ]; then
+    echo "Set env variable PROJECT_PATH to dump files"
+    exit 1
+fi 
+
+path="${PROJECT_PATH}/src/main/res"
 
 for ii in *.jpg *.png; do 
     if [ -f $ii ];
@@ -80,9 +78,9 @@ for ii in *.jpg *.png; do
 
         x=`echo $x | tr "[:upper:]" "[:lower:]"`
         echo $ii
-        convert -resize 33.3% $ii drawable-mdpi/$x
-        convert -resize 50% $ii drawable-hdpi/$x
-        convert -resize 66.6% $ii drawable-xhdpi/$x
-        convert -resize 100% $ii drawable-xxhdpi/$x        
+        convert -resize 33.3% $ii $path/drawable-mdpi/$x
+        convert -resize 50% $ii $path/drawable-hdpi/$x
+        convert -resize 66.6% $ii $path/drawable-xhdpi/$x
+        convert -resize 100% $ii $path/drawable-xxhdpi/$x        
     fi
 done
